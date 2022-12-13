@@ -99,8 +99,8 @@ header {
 .contenido {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  padding-left: 2rem;
 }
 @media (min-width: 768px) {
   .contenido {
@@ -118,7 +118,8 @@ header {
     line-height: 3rem;
   }
 }
-.contenido span {
+.contenido span,
+.span {
   font-family: "Lato", sans-serif;
   font-style: italic;
   font-weight: 400;
@@ -127,13 +128,39 @@ header {
 .contenido_rol p {
   font-size: 2.2rem;
   padding-bottom: 1rem;
+  position: relative;
+  padding-right: 1rem;
 }
 @media (min-width: 768px) {
   .contenido_rol p {
     font-size: 2.4rem;
-    text-align: center;
+    padding-bottom: 0rem;
+  }
+  .contenido_rol {
+    display: flex;
   }
 }
+.contenido_rol .span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4d3724;
+  border-left: 2px solid #f0c1a2;
+  animation: animate 5s steps(20) infinite;
+}
+@keyframes animate {
+  40%,
+  60% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
 .imagen {
   border-radius: 4rem;
 }
@@ -236,7 +263,7 @@ header {
 @media (min-width: 768px) {
   .habilidades__contenedor {
     display: grid;
-    grid-template-columns: repeat(4, 10rem);
+    grid-template-columns: repeat(4, 15rem);
     background-size: 30rem 30rem;
   }
 }
@@ -424,6 +451,7 @@ header {
   border: 1px solid #e1e1e1;
   padding: 1rem;
 }
+
 .opciones {
   display: flex;
   align-items: center;
@@ -441,4 +469,9 @@ header {
 }
 .opciones img {
   height: 5rem;
+}
+.errores {
+  color: rgb(253, 95, 95);
+  font-size: 12px;
+  text-align: center;
 }

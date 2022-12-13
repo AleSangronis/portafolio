@@ -10,8 +10,27 @@ import ts from "./habilidades/typescript.png";
 import mongo from "./habilidades/mongo.png";
 import Proyectos from "./proyectos/proyectos.jsx";
 import Contacto from "./contacto/contacto";
+
 function App() {
   let array = [js, html, node, react, postgre, css, ts, mongo];
+
+  window.addEventListener("load", function () {
+    let texto = document.querySelector(".span");
+    let textLoad = () => {
+      setTimeout(() => {
+        texto.textContent = "Developer Full Stack";
+      }, 0);
+      setTimeout(() => {
+        texto.textContent = "Front-End";
+      }, 4000);
+      setTimeout(() => {
+        texto.textContent = "Back-End";
+      }, 8000);
+    };
+    textLoad();
+    setInterval(textLoad, 12000);
+  });
+
   return (
     <>
       <header id="home">
@@ -20,11 +39,11 @@ function App() {
             <nav className="menu">
               {" "}
               <a href="#home">Home</a>
-              <a href="#sobreMi">Sobre Mi</a>
-              <a href="#habilidades">Habilidades</a>
-              <a href="#educacion">Educacion</a>
-              <a href="#proyectos">Proyectos</a>
-              <a href="#contacto">Contacto</a>
+              <a href="#sobreMi">About me</a>
+              <a href="#habilidades">Skills</a>
+              <a href="#educacion">Education</a>
+              <a href="#proyectos">Projects</a>
+              <a href="#contacto">Contact me</a>
             </nav>
           </div>
           <div className="contenedor__contenido">
@@ -36,9 +55,8 @@ function App() {
                 </p>
               </div>
               <div className="contenido_rol">
-                <p>
-                  I'm a <span>Developer Full Stack</span>
-                </p>
+                <p>I'm a </p>
+                <p className="span"></p>
               </div>
             </div>
             <img className="imagen" src={img} alt="imagen" />
@@ -47,18 +65,18 @@ function App() {
       </header>
       <section className="btns contenedor">
         <a className="btn" href="./alexandra.pdf" target="_blank">
-          Ver CV
+          View CV
         </a>
         <a className="btn download" href="./alexandra.pdf" download>
-          Descargar CV
+          Download CV
         </a>
         <a className="btn" href="#contacto">
-          Contacto
+          Contact
         </a>
       </section>
       <main id="sobreMi" className="contenedor">
         <div className="sobreMi">
-          <h1 className="sobreMi__h1">Sobre Mi</h1>
+          <h1 className="sobreMi__h1">About Me</h1>
           <div className="sobreMi__contenido">
             <div className="text">
               <p>
@@ -85,11 +103,11 @@ function App() {
         </div>
       </main>
       <section id="habilidades" className="contenedor habilidades mt-5">
-        <h1>Habilidades</h1>
+        <h1>Skills</h1>
         <div className="habilidades__contenedor">
           {array.map((el) => {
             return (
-              <div className="imagen">
+              <div className="imagen" key={el}>
                 <img src={el} alt={el} />
               </div>
             );
@@ -97,7 +115,7 @@ function App() {
         </div>
       </section>
       <section id="educacion" className="contenedor educacion ">
-        <h1>Educacion</h1>
+        <h1>Education</h1>
         <div className="contenedor__educacion">
           <div className="estudios">
             <div className="unefa"></div>

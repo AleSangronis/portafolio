@@ -3,7 +3,7 @@ export default function proyectos() {
   return (
     <>
       <div className="contenedor proyectos">
-        <h1>Proyectos</h1>
+        <h1>Projects</h1>
         <div className="contenedor__proyecto">
           <div className="card">
             <div className="card__image"></div>
@@ -13,7 +13,7 @@ export default function proyectos() {
                 href="https://github.com/AleSangronis/CoinTracker"
                 target="_blank"
               >
-                Repositorio
+                Repository
               </a>
               <a
                 className="btn download"
@@ -32,7 +32,7 @@ export default function proyectos() {
                 href="https://github.com/AleSangronis/PI-DOGS"
                 target="_blank"
               >
-                Repositorio
+                Repository
               </a>
               <a className="btn download" href="#" target="_blank">
                 Deploy
@@ -47,7 +47,7 @@ export default function proyectos() {
                 href="https://github.com/AleSangronis/ecommerce-html-css"
                 target="_blank"
               >
-                Repositorio
+                Repository
               </a>
               <a
                 className="btn download"
@@ -66,7 +66,7 @@ export default function proyectos() {
                 href="https://github.com/AleSangronis/Audifonos-HTML-CSS"
                 target="_blank"
               >
-                Repositorio
+                Repository
               </a>
               <a
                 className="btn download"

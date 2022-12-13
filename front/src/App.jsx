@@ -18,13 +18,13 @@ function App() {
     let texto = document.querySelector(".span");
     let textLoad = () => {
       setTimeout(() => {
-        texto.textContent = "Developer Full Stack";
+        texto.innerHTML = "Developer Full Stack";
       }, 0);
       setTimeout(() => {
-        texto.textContent = "Front-End";
+        texto.innerHTML = "Front-End";
       }, 4000);
       setTimeout(() => {
-        texto.textContent = "Back-End";
+        texto.innerHTML = "Back-End";
       }, 8000);
     };
     textLoad();
@@ -56,7 +56,7 @@ function App() {
               </div>
               <div className="contenido_rol">
                 <p>I'm a </p>
-                <p className="span"></p>
+                <p className="span">Developer Full Stack</p>
               </div>
             </div>
             <img className="imagen" src={img} alt="imagen" />

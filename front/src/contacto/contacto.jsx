@@ -5,7 +5,7 @@ import io from "socket.io-client";
 import error from "./comprobacion";
 import Swal from "sweetalert2";
 
-const socket = io(`${import.meta.env.DEPLOY_BACK || "http://localhost:3001"}`);
+const socket = io("http://localhost:3001");
 
 export default function contacto() {
   let inicial = {

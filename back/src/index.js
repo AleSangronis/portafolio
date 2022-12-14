@@ -5,6 +5,7 @@ const { Server } = require("socket.io");
 const http = require("http");
 const { respuesta, envioMensaje } = require("./utils/handleMail.js");
 const app = express();
+const cors = require("cors");
 const DEPLOY_FRONT = process.env.DEPLOY_FRONT;
 
 //io//
@@ -25,6 +26,17 @@ app.use(
   express.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 })
 );
 app.use(morgan("dev"));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "http://127.0.0.1:5173",
+      `${DEPLOY_FRONT}`,
+    ],
+    credentials: true,
+  })
+);
+
 app.use((err, req, res) => {
   res.send(err);
 });

@@ -41,7 +41,7 @@ export default function contacto() {
     if (Object.keys(errores).length === 0) {
       try {
         await axios.post(
-          "https://portafolio-alexandra-araujo.onrender.com",
+          "http://portafolio-alexandra-araujo.onrender.com",
           datos
         );
         await setDatos(inicial);

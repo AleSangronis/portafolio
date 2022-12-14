@@ -1,12 +1,10 @@
 import githutb from "../img/github.png";
 import linkedin from "../img/linkedin.png";
 import { useState } from "react";
-import io from "socket.io-client";
+
 import error from "./comprobacion";
 import Swal from "sweetalert2";
 import axios from "axios";
-
-/* const socket = io("https://portafolio-alexandra-araujo.onrender.com"); */
 
 export default function contacto() {
   let inicial = {

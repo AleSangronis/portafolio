@@ -30,7 +30,7 @@ app.post("/", async (req, res) => {
         `;
   await respuesta(mail, "successful delivery confirmation!", html);
   await envioMensaje(mail, nombre, mensaje);
-  return res.send("exitoso");
+  return res.status(202).json("listo");
 });
 
 app.use((error, req, res) => {

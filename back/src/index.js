@@ -11,16 +11,7 @@ app.use(
   express.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 })
 );
 app.use(morgan("dev"));
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "http://127.0.0.1:5173",
-      `${DEPLOY_FRONT}`,
-    ],
-    credentials: true,
-  })
-);
+
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", `${DEPLOY_FRONT}`); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Credentials", "true");
@@ -31,6 +22,7 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   next();
 });
+
 app.get("/", (req, res) => {
   res.send("hola");
 });

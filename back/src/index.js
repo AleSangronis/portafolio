@@ -11,7 +11,11 @@ const DEPLOY_FRONT = process.env.DEPLOY_FRONT;
 const servers = http.createServer(app);
 const io = new Server(servers, {
   cors: {
-    origin: ["http://localhost:5173", "http://127.0.0.1:5173"],
+    origin: [
+      "http://localhost:5173",
+      "http://127.0.0.1:5173",
+      `${DEPLOY_FRONT}`,
+    ],
     credentials: true,
   },
 });

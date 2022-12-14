@@ -1,19 +1,19 @@
 export default function error(datos) {
   let error = {};
   if (!datos.nombre) {
-    error.nombre = "Este campo es requerido";
+    error.nombre = "This field is required";
   }
   if (!datos.asunto) {
-    error.asunto = "Este campo es requerido";
+    error.asunto = "This field is required";
   }
   if (!datos.mail) {
-    error.mail = "Este campo es requerido";
+    error.mail = "This field is required";
   }
   if (datos.mail && !/\S+@\S+\.\S+/.test(datos.mail)) {
-    error.mail = "Ingrese un mail valido";
+    error.mail = "Enter a valid email";
   }
   if (!datos.mensaje) {
-    error.mensaje = "Este campo es requerido";
+    error.mensaje = "This field is required";
   }
   return error;
 }

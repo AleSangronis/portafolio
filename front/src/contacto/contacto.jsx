@@ -5,7 +5,7 @@ import io from "socket.io-client";
 import error from "./comprobacion";
 import Swal from "sweetalert2";
 
-const socket = io("https://portafolio-alexandra-araujo.onrender.com/");
+const socket = io("https://portafolio-alexandra-araujo.onrender.com");
 
 export default function contacto() {
   let inicial = {

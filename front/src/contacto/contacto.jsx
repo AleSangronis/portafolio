@@ -4,8 +4,9 @@ import { useState } from "react";
 import io from "socket.io-client";
 import error from "./comprobacion";
 import Swal from "sweetalert2";
+import axios from "axios";
 
-const socket = io("https://portafolio-alexandra-araujo.onrender.com");
+/* const socket = io("https://portafolio-alexandra-araujo.onrender.com"); */
 
 export default function contacto() {
   let inicial = {
@@ -40,15 +41,29 @@ export default function contacto() {
     let errores = await error(datos);
     await setErrors(errores);
     if (Object.keys(errores).length === 0) {
-      socket.emit("message", datos);
-      await setDatos(inicial);
-      await Swal.fire({
-        icon: "success",
-        title: "Your mail was send!",
-        confirmButtonText: "Ok!",
-        timer: 1500,
-      });
-      return;
+      try {
+        await axios.post(
+          "https://portafolio-alexandra-araujo.onrender.com",
+          datos
+        );
+        await setDatos(inicial);
+        await Swal.fire({
+          icon: "success",
+          title: "Your mail was send!",
+          confirmButtonText: "Ok!",
+          timer: 1500,
+        });
+        return;
+      } catch (error) {
+        await Swal.fire({
+          icon: "error",
+          title: "Oops, something went wrong",
+          text: `${error}`,
+          confirmButtonText: "Try again",
+          timer: 1500,
+        });
+        return;
+      }
     }
   };
   return (

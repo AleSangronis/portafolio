@@ -82,7 +82,7 @@ header {
   flex-direction: column-reverse;
   background-color: #4d3724;
   color: white;
-  margin-top: 2rem;
+  margin-top: 1rem;
   border-radius: 1rem;
 }
 @media (min-width: 768px) {
@@ -91,7 +91,7 @@ header {
     grid-template-columns: repeat(2, 1fr);
     background-color: #4d3724;
     color: white;
-    margin-top: 4rem;
+    margin-top: 1rem;
     border-radius: 1rem;
   }
 }
@@ -140,7 +140,29 @@ header {
     padding-bottom: 0rem;
   }
 }
-
+.contenedor_idioma {
+  display: flex;
+  justify-content: flex-end;
+}
+.but-idioma {
+  display: flex;
+  justify-content: center;
+  border: 0.1rem solid #4d3724;
+  width: 5rem;
+  margin-top: 1rem;
+  padding: 0.1rem;
+  color: #f0c1a2;
+  border-radius: 0.2rem;
+}
+.but-idioma:hover {
+  cursor: pointer;
+}
+.but-idioma.espanol {
+  background-color: #4d3724;
+}
+.but-idioma.english {
+  background-color: #4d3724;
+}
 @media (min-width: 768px) {
   .contenido_rol .span::before {
     content: "";

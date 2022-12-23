@@ -6,7 +6,7 @@ import error from "./comprobacion";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-export default function contacto() {
+export default function contacto({ idioma }) {
   let inicial = {
     nombre: "",
     asunto: "",
@@ -67,18 +67,20 @@ export default function contacto() {
   return (
     <>
       <div className="contenedor">
-        <h1>Contact me</h1>
+        <h1>{idioma === true ? "Contactame" : "Contact me"}</h1>
         <form className="formulario">
           <fieldset>
             <legend>Data</legend>
             <div className="campo">
-              <label htmlFor="nombre">Name: </label>
+              <label htmlFor="nombre">
+                {idioma === true ? "Nombre:" : "Name:"}
+              </label>
               <input
                 id="nombre"
                 name="nombre"
                 type="text"
                 value={datos.nombre}
-                placeholder="Your Name"
+                placeholder={idioma === true ? "Tu nombre" : "Your Name"}
                 onChange={(e) => handleSubmit(e)}
                 required
                 onBlur={(e) => onBlur(e)}
@@ -87,13 +89,15 @@ export default function contacto() {
             {errors.nombre && <p className="errores">{errors.nombre}</p>}
 
             <div className="campo">
-              <label htmlFor="asunto">Reason:</label>
+              <label htmlFor="asunto">
+                {idioma === true ? "Motivo:" : "Reason:"}
+              </label>
               <input
                 id="asunto"
                 name="asunto"
                 value={datos.asunto}
                 type="text"
-                placeholder="Your Reason"
+                placeholder={idioma === true ? "Tu Motivo" : "Your Reason"}
                 onChange={(e) => handleSubmit(e)}
                 onBlur={(e) => onBlur(e)}
                 required
@@ -109,13 +113,15 @@ export default function contacto() {
                 type="email"
                 onChange={(e) => handleSubmit(e)}
                 onBlur={(e) => onBlur(e)}
-                placeholder="Your Email"
+                placeholder={idioma === true ? "Tu Email" : "Your Email"}
               />
             </div>
             {errors.mail && <p className="errores">{errors.mail}</p>}
 
             <div className="campo">
-              <label htmlFor="tel">Message:</label>
+              <label htmlFor="tel">
+                {idioma === true ? "Mensaje:" : "Message:"}
+              </label>
               <textarea
                 rows="10"
                 cols="20"
@@ -133,7 +139,7 @@ export default function contacto() {
               onClick={(e) => enviar(e)}
               type="submit"
             >
-              Send
+              {idioma === true ? "Enviar" : "Send"}
             </button>
             <a href="https://github.com/AleSangronis" target="_blank">
               {" "}

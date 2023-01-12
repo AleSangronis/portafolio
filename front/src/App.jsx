@@ -10,13 +10,30 @@ import ts from "./habilidades/typescript.png";
 import mongo from "./habilidades/mongo.png";
 import Proyectos from "./proyectos/proyectos.jsx";
 import Contacto from "./contacto/contacto";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function App() {
   let array = [js, html, node, react, postgre, css, ts, mongo];
 
   let [espanol, setEspanol] = useState(true);
+  let rolesSpanol = ["Desarrolladora Full Stack", "Front-End", "Back-End"];
+  let rolesIngles = ["Developer Full Stack", "Front-End", "Back-End"];
 
-  window.addEventListener("load", function () {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      espanol === true
+        ? setCurrentIndex(
+            (currentIndex) => (currentIndex + 1) % rolesSpanol.length
+          )
+        : setCurrentIndex(
+            (currentIndex) => (currentIndex + 1) % rolesIngles.length
+          );
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [rolesSpanol, rolesIngles]);
+
+  /* window.addEventListener("load", function () {
     let texto = document.querySelector(".span");
     let textLoad = () => {
       setTimeout(() => {
@@ -34,7 +51,7 @@ function App() {
     };
     textLoad();
     setInterval(textLoad, 12000);
-  });
+  }); */
 
   let cambiarIdiomaEn = (e) => {
     e.preventDefault();
@@ -54,7 +71,7 @@ function App() {
           <div className="contenedor__nav">
             <nav className="menu">
               {" "}
-              <a href="#home">{espanol === true ? "Home" : "Inicio"}</a>
+              <a href="#home">{espanol === true ? "Inicio" : "Home"}</a>
               <a href="#sobreMi">
                 {espanol === true ? "Sobre mi" : "About me"}
               </a>
@@ -102,8 +119,8 @@ function App() {
                 <p>{espanol === true ? "Yo soy" : "I'm a"} </p>
                 <p className="span">
                   {espanol === true
-                    ? "Desarrolladora Full Stack"
-                    : "Developer Full Stack"}
+                    ? rolesSpanol[currentIndex]
+                    : rolesIngles[currentIndex]}
                 </p>
               </div>
             </div>

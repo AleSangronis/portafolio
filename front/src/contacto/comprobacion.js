@@ -3,6 +3,9 @@ export default function error(datos) {
   if (!datos.nombre) {
     error.nombre = "This field is required";
   }
+  if (datos.nombre && !/^[a-zA-Z\s]+$/.test(datos.nombre)) {
+    error.nombre = "Enter a name without numbers";
+  }
   if (!datos.asunto) {
     error.asunto = "This field is required";
   }

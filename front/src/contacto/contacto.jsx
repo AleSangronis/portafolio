@@ -14,6 +14,7 @@ export default function contacto({ idioma }) {
     mensaje: "",
   };
   const [errors, setErrors] = useState({});
+  const [cargando, setCargando] = useState(false);
 
   const [datos, setDatos] = useState(inicial);
 
@@ -40,10 +41,12 @@ export default function contacto({ idioma }) {
     await setErrors(errores);
     if (Object.keys(errores).length === 0) {
       try {
+        setCargando(!cargando);
         await axios.post(
           "https://portafolio-alexandra-araujo.onrender.com",
           datos
         );
+        await setCargando(false);
         await setDatos(inicial);
         await Swal.fire({
           icon: "success",
@@ -67,6 +70,9 @@ export default function contacto({ idioma }) {
   return (
     <>
       <div className="contenedor">
+        <div className={`loading ${cargando && "show"}`}>
+          {espanol === true ? "Enviando Mail.." : "Sending mail.."}
+        </div>
         <h1>{idioma === true ? "Contactame" : "Contact me"}</h1>
         <form className="formulario">
           <fieldset>

@@ -70,9 +70,11 @@ export default function contacto({ idioma }) {
   return (
     <>
       <div className="contenedor">
-        <div className={`loading ${cargando && "show"}`}>
-          {espanol === true ? "Enviando Mail.." : "Sending mail.."}
-        </div>
+        {cargando && (
+          <div className="loading">
+            {idioma === true ? "Enviando Mail.." : "Sending mail.."}
+          </div>
+        )}
         <h1>{idioma === true ? "Contactame" : "Contact me"}</h1>
         <form className="formulario">
           <fieldset>

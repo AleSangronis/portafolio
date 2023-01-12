@@ -18,6 +18,7 @@ body {
 
 /*LOADING*/
 .loading {
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -28,12 +29,8 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 2rem;
-  display: none;
 }
 
-.loading.show {
-  display: flex;
-}
 /*GLOBALES*/
 .contenedor {
   max-width: 120rem;

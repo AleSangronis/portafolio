@@ -8,11 +8,13 @@ import postgre from "./habilidades/postgre.png";
 import css from "./habilidades/css.png";
 import ts from "./habilidades/typescript.png";
 import mongo from "./habilidades/mongo.png";
+import sass from "./habilidades/sass.png";
+import gulp from "./habilidades/gulp.png";
 import Proyectos from "./proyectos/proyectos.jsx";
 import Contacto from "./contacto/contacto";
 import { useState, useEffect } from "react";
 function App() {
-  let array = [js, html, node, react, postgre, css, ts, mongo];
+  let array = [js, html, node, react, postgre, css, ts, mongo, sass, gulp];
 
   let [espanol, setEspanol] = useState(true);
   let rolesSpanol = ["Desarrolladora Full Stack", "Front-End", "Back-End"];
